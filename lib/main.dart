@@ -3,7 +3,18 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(
     title: "People Counter",
-    home: Stack(
+    home: Home(),
+  ));
+}
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
       children: <Widget>[
         Image.asset("images/reception.png", fit: BoxFit.fitHeight, height: 1000.0),
         Column(
@@ -55,6 +66,7 @@ void main() {
           ],
         )
       ],
-    ),
-  ));
+    );
+  }
 }
+
