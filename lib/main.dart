@@ -6,17 +6,27 @@ void main() {
     home: Home(),
   ));
 }
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
+  int _people = 0;
+
+  void _changeCounter(int delta) {
+    setState(() {
+      _people += delta;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        Image.asset("images/reception.png", fit: BoxFit.fitHeight, height: 1000.0),
+        Image.asset("images/reception.png",
+            fit: BoxFit.fitHeight, height: 1000.0),
         Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
@@ -24,7 +34,7 @@ class _HomeState extends State<Home> {
               Padding(
                   padding: EdgeInsets.fromLTRB(0, 45, 0, 295),
                   child: Text(
-                    "Counter: 0",
+                    "Counter: $_people",
                     style: TextStyle(
                         color: Colors.black, fontWeight: FontWeight.bold),
                   )),
@@ -39,7 +49,9 @@ class _HomeState extends State<Home> {
                       "Add someone",
                       style: TextStyle(fontSize: 18.0, color: Colors.black),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      _changeCounter(1);
+                    },
                   ),
                 ),
                 Padding(
@@ -49,7 +61,9 @@ class _HomeState extends State<Home> {
                       "Remove someone",
                       style: TextStyle(fontSize: 18.0, color: Colors.black),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      _changeCounter(-1);
+                    },
                   ),
                 ),
               ],
@@ -69,4 +83,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
