@@ -14,10 +14,18 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _people = 0;
+  String _infoText = 'Vacancies';
 
   void _changeCounter(int delta) {
     setState(() {
       _people += delta;
+      if (_people < 0) {
+        _infoText = "How is this possible?";
+      } else if (_people == 0) {
+        _infoText = "Vacancies";
+      } else {
+        _infoText = "The more, the merrier!";
+      }
     });
   }
 
@@ -34,7 +42,7 @@ class _HomeState extends State<Home> {
               Padding(
                   padding: EdgeInsets.fromLTRB(0, 45, 0, 295),
                   child: Text(
-                    "Counter: $_people",
+                    "Guests: $_people",
                     style: TextStyle(
                         color: Colors.black, fontWeight: FontWeight.bold),
                   )),
@@ -68,13 +76,24 @@ class _HomeState extends State<Home> {
                 ),
               ],
             ),
+            Padding(
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 80),
+                child: Text(
+                  "Flutter Hotel",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                    fontSize: 30.0,
+                  ),
+                )),
             Text(
-              "Flutter Hotel",
+              _infoText,
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
-                fontStyle: FontStyle.italic,
-                fontSize: 30.0,
+                fontStyle: FontStyle.normal,
+                fontSize: 20.0,
               ),
             )
           ],
