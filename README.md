@@ -7,4 +7,4 @@ As a starting point for a Flutter application, this is the first in a series of 
 The main idea is to simulate a hotel reception, counting the number of guests inside the establishment.
 
 ### Screenshot:
-<img src="https://github.com/AleBark/People-Counter/blob/master/sample.jpg" height="450" width="250px" >
+<img src="https://github.com/AleBark/people-counter/blob/master/sample.jpg" height="450" width="250px" >
